@@ -93,7 +93,7 @@ A promise that resolves to a `CapturedResult`.
 
 ```js
 const imageUrl = 'https://example.com/image.png';
-const results = barcodeScanner.decode(imageUrl);
+const results = await barcodeScanner.decode(imageUrl);
 //... do something with the results
 ```
 
@@ -318,7 +318,7 @@ Called when the capture process begins.
     // engineResourcePaths typically is only assigned when using a framework like React/Angular/Vue where the resources are not in the same location as the script reference.
     engineResourcePaths: {rootDirectory:"https://cdn.jsdelivr.net/npm/"},
     // path to the UI file
-    uiPath: "https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.2.4000/dist/ui/barcode-scanner.ui.xml",
+    uiPath: "https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2000/dist/ui/barcode-scanner.ui.xml",
     barcodeFormats: [Dynamsoft.DBR.EnumBarcodeFormat.BF_QR_CODE , Dynamsoft.DBR.EnumBarcodeFormat.BF_CODE_128],
     showPoweredByDynamsoft: false,
     duplicateForgetTime: 3000,

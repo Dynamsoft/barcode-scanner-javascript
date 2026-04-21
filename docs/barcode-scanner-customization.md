@@ -126,7 +126,7 @@ Integrating `BarcodeScanner` into frameworks like `Angular`, `React`, and `Vue` 
 Open the terminal from your project root and install **Dynamsoft Barcode Reader SDK** with the following command:
 
 ```sh
-npm install dynamsoft-barcode-reader-bundle@11.2.4000 -E
+npm install dynamsoft-barcode-reader-bundle@11.4.2000 -E
 ```
 
 ### Component for video decoding
@@ -157,7 +157,7 @@ Below is an example using the official CDN — feel free to replace it with your
         rootDirectory: "https://cdn.jsdelivr.net/npm/",
       },
       // Path to the UI (.xml template file).
-      uiPath: "https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.2.4000/dist/ui/barcode-scanner.ui.xml",
+      uiPath: "https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2000/dist/ui/barcode-scanner.ui.xml",
     };
 ```
 

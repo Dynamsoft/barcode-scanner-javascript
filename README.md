@@ -1,103 +1,270 @@
-# barcode-scanner-javascript-dev
+# Dynamsoft Barcode Reader JavaScript Edition - Ready-to-Use (RTU) API
 
-A JavaScript wrapper around Dynamsoft Barcode Reader JavaScript Edition, focused on easier adoption with a minimal, ready-to-use API.
+A powerful, easy-to-use JavaScript barcode scanning library for web applications. Scan barcodes from camera streams or image files with just a few lines of code.
 
-## Why This Repo Exists
+[![npm version](https://img.shields.io/npm/v/dynamsoft-barcode-reader-bundle.svg)](https://www.npmjs.com/package/dynamsoft-barcode-reader-bundle)
+[![downloads](https://img.shields.io/npm/dm/dynamsoft-barcode-reader-bundle.svg)](https://www.npmjs.com/package/dynamsoft-barcode-reader-bundle)
 
-The official Dynamsoft Barcode Reader JavaScript Edition is powerful, but teams often need to wire together setup details before they can ship a smooth scanning flow. This project aims to provide a thinner, friendlier layer on top of the core SDK so developers can get from install to first scan faster.
+## Table of Contents
 
-The wrapper is intended to help with:
+- [Introduction](#introduction)
+- [Why Choose the JavaScript Ready-to-Use Edition](#why-choose-the-javascript-ready-to-use-edition)
+- [Features](#features)
+- [Supported Barcode Formats](#supported-barcode-formats)
+- [Browser Support](#browser-support)
+- [Installation](#installation)
+- [Quick Start](#quick-start)
+    - [Scan One Single Barcode via Camera](#scan-one-single-barcode-via-camera)
+    - [Scan Multiple Barcodes Continuously](#scan-multiple-barcodes-continuously)
+    - [Read Barcodes from an Image](#read-barcodes-from-an-image)
+- [Live Demos](#live-demos)
+- [Documentation](#documentation)
+- [Framework Integration](#framework-integration)
+- [License](#license)
+- [Support & Resources](#support--resources)
 
-- faster onboarding for new projects
-- a smaller surface area for common barcode-scanning use cases
-- sensible defaults for camera-based scanning in the browser
-- easier integration into demos, prototypes, and production apps
+## Introduction
 
-## Goals
+Dynamsoft Barcode Reader JavaScript Edition (Ready-to-Use API) enables developers to integrate barcode scanning functionality into web applications with minimal effort. Built on industry-leading barcode recognition algorithms, it provides high accuracy and performance while maintaining an intuitive, developer-friendly API.
 
-- Keep the API small and easy to understand
-- Cover the most common browser scanning workflows first
-- Stay close to Dynamsoft Barcode Reader capabilities instead of hiding them completely
-- Make adoption simple for teams that want a practical default setup
+**Get scanning in under 5 minutes** with our pre-built UI and sensible defaults, or customize every aspect to match your application's requirements.
 
-## Planned Scope
+## Why Choose the JavaScript Ready-to-Use Edition
 
-This repository is currently in the early setup stage. The intended package will focus on:
+- **Zero Configuration Required** - Start scanning with a single line of code using built-in defaults
+- **Pre-built Camera UI** - Professional viewfinder with scan region highlighting included out of the box
+- **High Accuracy** - Industry-leading recognition algorithms with 99%+ accuracy on standard barcodes
+- **Cross-Platform** - Works seamlessly across desktop and mobile browsers (Chrome, Firefox, Safari, Edge)
+- **Flexible Deployment** - CDN, npm, or self-hosted options available
+- **Framework Friendly** - Ready-made samples for React, Vue, Angular, Next.js, Nuxt, Svelte, and more
+- **Production Ready** - Battle-tested by thousands of applications worldwide
+- **Fully Customizable** - Access advanced configuration when you need precise control
 
-- initializing the Dynamsoft barcode engine with minimal configuration
-- starting and stopping live camera scanning
-- decoding from image files
-- returning normalized, easy-to-consume scan results
-- exposing escape hatches for advanced Dynamsoft configuration when needed
+## Features
 
-## Intended Developer Experience
+- **Live Camera Scanning** - Real-time barcode detection from device cameras
+- **Image File Decoding** - Read barcodes from uploaded images or files
+- **Multi-Barcode Detection** - Scan multiple barcodes simultaneously with deduplication
+- **Customizable UI** - Modify the built-in UI or create your own from scratch
+- **Scan Region Control** - Define specific areas of the camera feed to scan
+- **High Performance** - WebAssembly-powered for fast processing
+- **Responsive Design** - Works on desktop and mobile devices
+- **Advanced Templates** - Fine-tune recognition for challenging scenarios
 
-The target experience is something along these lines:
+## Supported Barcode Formats
 
-```js
-import { createBarcodeScanner } from "barcode-scanner-javascript";
+**1D Barcodes:** Code 128, Code 39, Code 93, Code 11, Codabar, Interleaved 2 of 5, Industrial 2 of 5, ITF-14, EAN-8, EAN-13, UPC-A, UPC-E, MSI Code, GS1 DataBar, GS1 Composite
 
-const scanner = await createBarcodeScanner({
-  license: "YOUR_LICENSE_KEY",
-  container: "#scanner",
-});
+**2D Barcodes:** QR Code, Data Matrix, PDF417, Aztec, MaxiCode
 
-await scanner.start();
+**Postal Codes:** USPS Intelligent Mail, Postnet, Planet, Australian Post, UK Royal Mail (RM4SCC)
 
-scanner.on("scan", (result) => {
-  console.log(result.text, result.format);
-});
+**Patch Code**
+
+**[View all 50+ supported formats](https://www.dynamsoft.com/barcode-reader/barcode-types/)**
+
+## Browser Support
+
+| Browser | Desktop | Mobile |
+| ------- | ------- | ------ |
+| Chrome  | 78+     | 78+    |
+| Firefox | 68+     | 68+    |
+| Safari  | 14+     | 14+    |
+| Edge    | 79+     | 79+    |
+
+**[View full system requirements](https://www.dynamsoft.com/faq/barcode-reader/web/capabilities/system-requirement.html)**
+
+## Installation
+
+### Option 1: CDN (Fastest Setup)
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2000/dist/dbr.bundle.js"></script>
 ```
 
-And for image decoding:
+### Option 2: npm
 
-```js
-const result = await scanner.decodeFile(file);
-console.log(result);
+```bash
+npm install dynamsoft-barcode-reader-bundle@11.4.2000
 ```
 
-The exact API may evolve as implementation takes shape, but the design direction is intentionally minimal.
+### Option 3: yarn
 
-## Project Structure
-
-```text
-src/       Source code for the wrapper
-samples/   Example integrations and demo apps
-docs/      Additional documentation and design notes
+```bash
+yarn add dynamsoft-barcode-reader-bundle@11.4.2000
 ```
 
-## Status
+## Quick Start
 
-This project is under active development. The repository structure is in place, and the next step is implementing the core wrapper API and sample applications.
+### Scan One Single Barcode via Camera
 
-## Roadmap
+**[▶ Try it on JSFiddle](https://jsfiddle.net/DynamsoftTeam/gcqjf5r7/)**
 
-- define the public API for scanner creation and lifecycle
-- add browser-based camera scanning support
-- add file/image decoding helpers
-- add sample apps for plain JavaScript and framework usage
-- document configuration, events, and result objects
-- add tests and release packaging
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Barcode Scanner</title>
+		<script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2000/dist/dbr.bundle.js"></script>
+	</head>
+	<body>
+		<script>
+			// Instantly launch scanner with built-in 24-hour trial license
+			new Dynamsoft.BarcodeScanner().launch().then((result) => {
+				alert(result.barcodeResults[0].text);
+			}).catch((error) => {
+				console.error(error);
+				alert("Error: " + error.message);
+			});
+		</script>
+	</body>
+</html>
+```
 
-## Who This Is For
+### Scan Multiple Barcodes Continuously
 
-This wrapper is a good fit for teams that:
+**[▶ Try it on JSFiddle](https://jsfiddle.net/DynamsoftTeam/d6comprf/)**
 
-- want to use Dynamsoft Barcode Reader JavaScript Edition
-- prefer a simpler integration layer for common cases
-- need to get a scanning experience working quickly
-- still want access to advanced SDK behavior when necessary
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Multi-Barcode Scanner</title>
+		<script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2000/dist/dbr.bundle.js"></script>
+	</head>
+	<body>
+		<script>
+			new Dynamsoft.BarcodeScanner({
+				scanMode: Dynamsoft.EnumScanMode.SM_MULTI_UNIQUE,
+				onUniqueBarcodeScanned: (result) => {
+					console.log(`[${result.formatString}] ${result.text}`);
+				},
+			}).launch();
+		</script>
+	</body>
+</html>
+```
 
-## Contributing
+### Read Barcodes from an Image
 
-Contributions are welcome as the wrapper takes shape. Early feedback is especially useful around:
+```html
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Read from Image</title>
+		<script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2000/dist/dbr.bundle.js"></script>
+	</head>
+	<body>
+		<input type="file" id="fileInput" accept="image/*" />
+		<div id="results"></div>
 
-- API design
-- result shape
-- configuration defaults
-- browser compatibility expectations
-- sample app priorities
+		<script>
+			const scanner = new Dynamsoft.BarcodeScanner();
+
+			document
+				.getElementById("fileInput")
+				.addEventListener("change", async (e) => {
+					const file = e.target.files[0];
+					try {
+						const result = await scanner.decode(file);
+
+						document.getElementById("results").innerHTML =
+							result.decodedBarcodesResult?.barcodeResultItems
+								.map((item) => `${item.formatString}: ${item.text}`)
+								.join("<br>") || "No barcode found";
+					} catch (error) {
+						console.error(error);
+						document.getElementById("results").innerHTML = "Error: " + error.message;
+					}
+				});
+		</script>
+	</body>
+</html>
+```
+
+## Live Demos
+
+Explore working examples for different use cases:
+
+### Hello World Samples
+
+- [Scan Single Barcode](./samples/hello-world/scan-a-single-barcode.html)
+- [Scan Multiple Barcodes](./samples/hello-world/hello-world.html)
+- [Read from Image File](./samples/hello-world/read-an-image.html)
+
+### Scenario-Based Samples
+
+- [Batch Inventory Scanning](./samples/scenarios/batch-inventory/)
+- [Shopping Cart Builder](./samples/scenarios/cart-builder/)
+- [Scan QR Codes](./samples/scenarios/scan-qr-code/)
+- [Read Driver's License (PDF417)](./samples/scenarios/read-a-drivers-license/)
+- [Scan DPM Codes](./samples/scenarios/scan-dpm-codes/)
+- [Distance Scanning with Zoom](./samples/scenarios/scan-from-distance/)
+
+**[View all samples](./samples/)**
+
+## Documentation
+
+**Getting Started**
+
+- [User Guide](./docs/user-guide.md) - Step-by-step tutorial to build your first scanner
+- [API Reference](./docs/barcode-scanner-api-reference.md) - Complete API documentation
+- [Customization Guide](./docs/barcode-scanner-customization.md) - Learn how to customize the scanner
+
+**Advanced Topics**
+
+- [Migration from v10 to v11](./docs/migrate-from-v10.md)
+- [Official Documentation](https://www.dynamsoft.com/barcode-reader/docs/web/programming/javascript/)
+
+## Framework Integration
+
+Pre-built samples available for popular frameworks:
+
+| Framework | Sample Link                                                     |
+| --------- | --------------------------------------------------------------- |
+| React     | [samples/frameworks/react](./samples/frameworks/react/)         |
+| Vue 3     | [samples/frameworks/vue](./samples/frameworks/vue/)             |
+| Angular   | [samples/frameworks/angular](./samples/frameworks/angular/)     |
+| Next.js   | [samples/frameworks/next](./samples/frameworks/next/)           |
+| Nuxt 3    | [samples/frameworks/nuxt](./samples/frameworks/nuxt/)           |
+| Svelte    | [samples/frameworks/svelte](./samples/frameworks/svelte/)       |
+| Electron  | [samples/frameworks/electron](./samples/frameworks/electron/)   |
+| Capacitor | [samples/frameworks/capacitor](./samples/frameworks/capacitor/) |
+
+**[View all framework samples](./samples/frameworks/)**
 
 ## License
 
-License information for this wrapper should be added here once the package structure is finalized.
+### Trial License
+
+A **built-in 24-hour trial license** is automatically used if no license is configured. This allows you to test the SDK immediately without any setup.
+
+### Extended Evaluation
+
+For extended evaluation beyond 24 hours, **[request a free 30-day trial license](https://www.dynamsoft.com/customer/license/trialLicense/?product=dbr&package=js)**.
+
+### Production Use
+
+For production deployment, **[contact sales](https://www.dynamsoft.com/contact/)** to purchase a commercial license.
+
+To configure your license:
+
+```javascript
+const scanner = new Dynamsoft.BarcodeScanner({
+	license: "YOUR_LICENSE_KEY_HERE",
+});
+```
+
+## Support & Resources
+
+**[Official Documentation](https://www.dynamsoft.com/barcode-reader/docs/web/programming/javascript/)**
+
+**[Report Issues](https://github.com/Dynamsoft/barcode-reader-javascript-samples/issues)**
+
+**[Contact Support](https://www.dynamsoft.com/contact/)** - support@dynamsoft.com
+
+---
+
+**Copyright © 2003–2026 Dynamsoft. All Rights Reserved.**
+
+The use of Dynamsoft Barcode Reader JavaScript Edition is governed by the [Dynamsoft Terms and Conditions](https://www.dynamsoft.com/barcode-reader/license-agreement/#javascript).
