@@ -348,11 +348,11 @@ Called when the capture process begins.
       });
       // Set the scan region to a rectangle with percentage values by cameraEnhancer
       let region = {
-        "x": 0,
-        "y": 20,
-        "width": 100,
-        "height": 60,
-        "isMeasuredInPercentage": true
+        left: 0,
+        top: 20,
+        right: 100,
+        bottom: 80,
+        isMeasuredInPercentage: true
       };
       components.cameraEnhancer.setScanRegion(region);
     },

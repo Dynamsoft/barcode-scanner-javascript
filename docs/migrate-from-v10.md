@@ -31,35 +31,11 @@ Several properties have been renamed or had their default values changed. Please
 | --------------------------------------- | ----------- | ----------- | -------------------------------------------------------------- |
 | `removePoweredByMessage` *(deprecated)* | `false`     | —           | Replaced by `showPoweredByDynamsoft`                           |
 | `showPoweredByDynamsoft`                | `false`     | `true`      | Controls whether the "Powered by Dynamsoft" label is displayed |
-| `showCloseButton`                       | `false`     | `true`      | Controls whether the close button is shown in the scannerView  |
+| `scannerViewConfig.showCloseButton`     | `false`     | `true`      | Controls whether the close button is shown in the scannerView  |
 | `showResultView`                        | `false`     | `true`      | Controls whether the result view is shown                      |
 
 > [!NOTE]
 > If your project depends on the previous default behavior, you must explicitly set these properties to maintain compatibility.
-
-### Foundational API Changes
-
-#### loadWasm() Simplified
-
-The `loadWasm()` function no longer requires any parameters. Simply call `loadWasm()` without arguments.
-
-```javascript
-Dynamsoft.Core.CoreModule.loadWasm();
-```
-
-#### engineResourcePaths Simplified
-
-There is no longer a need to define `engineResourcePaths` for different modules. Resource management has been centralized and streamlined.
-
-```javascript
-// To specify the path for rootDirectory
-Dynamsoft.Core.CoreModule.engineResourcePaths.rootDirectory = "https://cdn.jsdelivr.net/npm/";
-```
-
-> [!NOTE]
-> Remove unnecessary parameters from `loadWasm()` calls.
->
-> Eliminate any redundant configuration of `engineResourcePaths`.
 
 ### Upgrade your template
 

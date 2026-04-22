@@ -28,7 +28,7 @@ const barcodeScanner = new Dynamsoft.BarcodeScanner({
 
 The benefit of this approach is that the template file can be reused across different platforms or programming languages, ensuring performance consistency across scenarios. To do this, follow these steps:
 
-1. Open `dist\DBR-PresetTemplates.json` in your code editor. This file contains all the preset templates related to barcode reading.
+1. Open `DBR-PresetTemplates.json` from the npm package (`node_modules/dynamsoft-barcode-reader-bundle/dist/DBR-PresetTemplates.json`) in your code editor. This file contains all the preset templates related to barcode reading.
 
 2. Add the `BarcodeFormatIds` to the `BarcodeReaderTaskSettingOptions` object.
 
@@ -119,7 +119,7 @@ Once you've made your changes, just set the new `uiPath` in the configuration. I
 
 ## Use BarcodeScanner in frameworks
 
-Integrating `BarcodeScanner` into frameworks like `Angular`, `React`, and `Vue` is a little different compared to native usage. You can also refer to [the ready-made samples for popular frameworks](https://github.com/Dynamsoft/barcode-reader-javascript-samples/tree/main/frameworks) directly without reading this guide.
+Integrating `BarcodeScanner` into frameworks like `Angular`, `React`, and `Vue` is a little different compared to native usage. You can also refer to [the ready-made samples for popular frameworks](https://github.com/Dynamsoft/barcode-scanner-javascript/tree/main/samples/frameworks) directly without reading this guide.
 
 ### Installation
 
