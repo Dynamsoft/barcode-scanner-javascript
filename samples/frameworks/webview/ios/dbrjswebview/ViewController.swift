@@ -42,7 +42,7 @@ class ViewController: UIViewController, WKUIDelegate {
         //webView.load(URLRequest(url: url))
         
         // load local html
-        let fileUrl = Bundle.main.url(forResource: "html/decodeFileInVideo", withExtension: "html")!
+        let fileUrl = Bundle.main.url(forResource: "html/decodeBarcodeInVideo", withExtension: "html")!
         webView.loadFileURL(fileUrl, allowingReadAccessTo: fileUrl)
         print("finish viewDidLoad")
     }
