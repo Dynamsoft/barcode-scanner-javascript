@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <meta name="description" content="Locate an item quickly with Dynamsoft Barcode Reader." />
   <meta name="keywords" content="locate item barcode, locate item barcode" />
-  <title>Dynamsoft Barcode Reader Sample - Locate an Item with Barcode</title>
+  <title>Dynamsoft Barcode Scanner Sample - Locate an Item with Barcode</title>
   <style>
     body {
       width: 100vw;
@@ -250,7 +250,7 @@
         <!-- Manual ID Input -->
         <input type="search" id="item-id" placeholder="Enter Item ID" style="flex: 8; width: 0" />
         <!-- Button to scan barcode to retrieve item ID -->
-        <button type="button" id="scan-id-button" style="flex: 1">
+        <button type="button" id="scan-id-button" aria-label="Scan barcode" style="flex: 1">
           <img src="icons/scan-barcode-icon.svg" alt="scan" style="width: 1rem; height: 1rem" />
         </button>
       </div>
@@ -291,7 +291,7 @@
           <!-- [Optional - Custom UI to select camera and resolution -->
           <select id="select-camera-dropdown"></select>
           <!-- Close Camera View button -->
-          <button id="close-button" type="button"></button>
+          <button id="close-button" type="button" aria-label="Close camera"></button>
         </div>
         <!-- [Optional] Title for Camera View -->
         <div style="display: flex; justify-content: center; flex-direction: column; align-items: center">
@@ -323,7 +323,7 @@
      */
 
     // Preload "BarcodeReader" module for reading barcodes. It will save time on the initial decoding by skipping the module loading.
-    Dynamsoft.Core.CoreModule.loadWasm();
+    Dynamsoft.Core.CoreModule.loadWasm().catch(ex => console.error("Failed to load wasm:", ex.message || ex));
 
     const cameraViewContainer = document.getElementById("camera-view-container");
     const cameraViewTitle = document.getElementById("camera-view-title");

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Read a GS1 Application Identifier (AI)</title>
+  <title>Dynamsoft Barcode Scanner Sample - Read a GS1 Application Identifier (AI)</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -20,9 +20,7 @@
   </div>
   <div id="barcode-scanner-view" class="barcode-scanner-view" style="display:none;"></div>
   <div id="result-page" class="result-page" style="display: none">
-    <canvas id="barcode-image" style="width:100%;height:30%;object-fit:fill;display:none;"></canvas>
-    <div id="barcode-text" class="barcode-text">[01]08059710154093[17]160213[3103]000210[3922]000187</div>
-    <div class="goods-name" style="display:none;">&lt;Goods Name&gt;</div>
+    <div id="barcode-text" class="barcode-text"></div>
     <div id="gs1AI-info" class="gs1AI-info"></div>
     <button id="back-to-scan" class="back-to-scan">Back to Scan</button>
     <div class="powered-by-dynamsoft"></div>
@@ -41,8 +39,6 @@
     const elBarcodeScannerView = document.getElementById("barcode-scanner-view");
 
     const elResultPage = document.getElementById("result-page");
-    const elBarcodeImage = document.getElementById("barcode-image");
-    const ctxBarcodeImage = elBarcodeImage.getContext("2d");
     const elBarcodeText = document.getElementById("barcode-text");
 
     const elGs1AIInfo = document.getElementById("gs1AI-info");
@@ -91,8 +87,10 @@
       elBarcodeScannerView.style.display = "";
 
       let parseSuccess = false;
+      const maxRetries = 3;
+      let retryCount = 0;
 
-      while (!parseSuccess) {
+      while (!parseSuccess && retryCount < maxRetries) {
 
         let result, is_EANUPC;
         try {
@@ -104,7 +102,8 @@
         }
         if (!result?.barcodeResults?.length) {
           // Decode from an image may no result
-          alert("No barcode detected, retrying...");
+          retryCount++;
+          alert(`No barcode detected. (Attempt ${retryCount}/${maxRetries})`);
           continue;
         }
 
@@ -116,8 +115,9 @@
         } catch (ex) {
           // maybe just because format not supported
           // you can continue and try other barcode
+          retryCount++;
           console.error(ex);
-          alert(`Parse failed: ${ex.message || ex}`);
+          alert(`Parse failed: ${ex.message || ex} (Attempt ${retryCount}/${maxRetries})`);
         }
       }
 
@@ -183,19 +183,6 @@
 
       console.log(barcodeResult.text);
       elBarcodeText.textContent = barcodeResult.text;
-
-      //// The sample does not currently require displaying the barcode image.
-      // const barcodeImage = result.barcodeImage;
-      // if (barcodeImage) {
-      //   //console.log(barcodeImage);
-      //   ctxBarcodeImage.canvas.width = barcodeImage.width;
-      //   ctxBarcodeImage.canvas.height = barcodeImage.height;
-      //   const imageData = new ImageData(new Uint8ClampedArray(barcodeImage.bytes), barcodeImage.width, barcodeImage.height);
-      //   ctxBarcodeImage.putImageData(imageData, 0, 0);
-      // } else {
-      //   console.warn("No barcode image available");
-      // }
-
     }
 
     const funcParseResult = async (result, is_EANUPC) => {
@@ -204,6 +191,9 @@
       let bytes = barcodeResult.bytes;
 
       const strNotValidGS1AI = "Not a GS1-compliant barcode.";
+      if (!parser) {
+        throw Error("Parser not initialized. Please reload the page.");
+      }
       // Parse GS1 barcode
       let parseResult;
       try {
@@ -233,14 +223,14 @@
       elGs1AIInfo.innerHTML = "";
       for (let info of gs1AIInfo) {
         const infoAI = info.FieldName;
-        const fullDescription = info.ChildFields[0][0]?.Value;
+        const fullDescription = info.ChildFields?.[0]?.[0]?.Value;
         const title = funcConvertGs1AIToTitle(infoAI);
-        const rawValue = info.ChildFields[0][1]?.Value;
+        const rawValue = info.ChildFields?.[0]?.[1]?.Value;
         let value; // friendly value
 
         const intAI = parseInt(infoAI);
         if (intAI >= 11 && intAI < 20) {
-          const dateFields = info.ChildFields[0][1]?.ChildFields?.[0];
+          const dateFields = info.ChildFields?.[0]?.[1]?.ChildFields?.[0];
           if (dateFields?.length >= 3) {
             value = `${dateFields[0].Value}-${dateFields[1].Value}-${dateFields[2].Value}`;
           }

@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>List-Builder - Scan to Cart Simulation</title>
+  <title>Dynamsoft Barcode Scanner Sample - Scan to Cart Simulation</title>
 
   <!-- Include Dynamsoft Barcode Reader Bundle via CDN -->
   <script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2000/dist/dbr.bundle.js"></script>
@@ -228,7 +228,7 @@
     }
 
     // Initialize Scan Button
-    window.onload = () => {
+    window.addEventListener("load", () => {
       document
         .getElementById("barcodeBtn")
         .addEventListener("click", startScanner);
@@ -268,9 +268,9 @@
       }, { passive: false });
 
       document.addEventListener("touchend", () => (isDragging = false));
-    };
+    });
 
-    window.addEventListener("orientationchange", () => {
+    screen.orientation.addEventListener("change", () => {
       dragDiv.style.left = "10%"
       dragDiv.style.top = "40%"
     })
