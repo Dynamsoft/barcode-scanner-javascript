@@ -382,5 +382,5 @@ const funcConvertGs1AIToTitle = (gs1AI) => {
   if(intAI >= 90 && intAI <= 99){
     return "INTERNAL";
   }
-  return title;
+  return "";
 };

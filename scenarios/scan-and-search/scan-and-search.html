@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Scan & Search with BarcodeScanner</title>
+  <title>Dynamsoft Barcode Scanner Sample - Scan and Search</title>
 
   <!-- Include Dynamsoft Barcode Reader Bundle via CDN -->
   <script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2000/dist/dbr.bundle.js"></script>
@@ -15,7 +15,6 @@
 <body>
   <h1>📦 Instant Product Information Lookup</h1>
   <h2>Enter a UPC, EAN, or ISBN number to retrieve accurate product data from a specific database</h2>
-  <h3></h3>
   <div id="container">
     <button id="scan-btn" aria-label="Scan barcode">
       <div class="scan-icon">
@@ -70,17 +69,17 @@
       }
     }
 
-    window.onload = () => {
-      scanBtn.addEventListener("click", () => {
+    window.addEventListener("load", () => {
+      scanBtn.addEventListener("click", async () => {
         scannerContainer.style.display = "flex";
-        startScanner();
+        await startScanner();
       });
 
       searchBtn.addEventListener("click", () => {
         if (!inputBox.value) return;
         searchResult.value = `Text to Query from Database: \n\n${inputBox.value} \n\n-------------------\n\nProduct name: xxx \n\nBrand: xxx \n\nCategory: xxx \n\nPrice: xxx \n\nDescription: xxx`;
       });
-    };
+    });
   </script>
 </body>
 <style>

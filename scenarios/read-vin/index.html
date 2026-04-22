@@ -8,7 +8,7 @@
   <meta name="keywords" content="read vin" />
   <link rel="canonical" href="https://demo.dynamsoft.com/Samples/DBR/JS/scenarios/read-vin/index.html" />
   <link rel="stylesheet" href="./style.css" />
-  <title>Dynamsoft Barcode Reader Sample - Read a VIN</title>
+  <title>Dynamsoft Barcode Scanner Sample - Read a VIN</title>
   <script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2000/dist/dbr.bundle.js"></script>
 </head>
 
@@ -38,14 +38,17 @@
 
     const licenseString = "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9";
 
-    (async () => {
-      await Dynamsoft.License.LicenseManager.initLicense(licenseString, { executeNow: true });
-      Dynamsoft.DCP.CodeParserModule.loadSpec("VIN");
-    })();
-
     let launchFunction = null;
 
     (async () => {
+      try {
+        await Dynamsoft.License.LicenseManager.initLicense(licenseString, { executeNow: true });
+        await Dynamsoft.DCP.CodeParserModule.loadSpec("VIN");
+      } catch (ex) {
+        console.error("Initialization error:", ex.message || ex);
+        alert(ex.message || ex);
+        return;
+      }
 
       const pParser = Dynamsoft.DCP.CodeParser.createInstance();
 
@@ -138,15 +141,15 @@
         parsedResultList.append(...resultList);
       }
 
-      startBtn.addEventListener("click", () => {
+      startBtn.addEventListener("click", async () => {
         loading.style.display = "block";
         startIcon.style.display = "none";
-        launchFunction();
+        await launchFunction();
       })
 
-      backToScan.addEventListener("click", () => {
+      backToScan.addEventListener("click", async () => {
         parsedResultView.style.display = "none";
-        launchFunction();
+        await launchFunction();
       })
     })();
   </script>

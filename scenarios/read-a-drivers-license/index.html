@@ -7,7 +7,7 @@
   <meta name="description" content="Instantly Read PDF417 barcodes on Driver Licenses with Dynamsoft Barcode Reader." />
   <meta name="keywords" content="read driver license barcode" />
   <link rel="canonical" href="https://demo.dynamsoft.com/Samples/DBR/JS/scenarios/read-a-drivers-license/index.html" />
-  <title>Dynamsoft Barcode Reader Sample - Read a Driver's License</title>
+  <title>Dynamsoft Barcode Scanner Sample - Read a Driver's License</title>
   <link rel="stylesheet" href="./style.css" />
 </head>
 
@@ -39,11 +39,16 @@
 
     const licenseString = "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9";
 
-    Dynamsoft.License.LicenseManager.initLicense(licenseString, { executeNow: true });
-    Dynamsoft.DCP.CodeParserModule.loadSpec(["AAMVA_DL_ID", "AAMVA_DL_ID_WITH_MAG_STRIPE", "SOUTH_AFRICA_DL"]);
-
     let launchFunction = null;
     (async () => {
+      try {
+        await Dynamsoft.License.LicenseManager.initLicense(licenseString, { executeNow: true });
+      } catch (ex) {
+        console.error("Initialization error:", ex.message || ex);
+        alert(ex.message || ex);
+        return;
+      }
+
       let pParser;
 
       launchFunction = async function() {
@@ -161,15 +166,15 @@
         parsedResultList.append(...resultList);
       }
 
-      startBtn.addEventListener("click", () => {
+      startBtn.addEventListener("click", async () => {
         loading.style.display = "block";
         startIcon.style.display = "none";
-        launchFunction();
+        await launchFunction();
       })
 
-      backToScan.addEventListener("click", () => {
+      backToScan.addEventListener("click", async () => {
         parsedResultView.style.display = "none";
-        launchFunction();
+        await launchFunction();
       })
     })();
   </script>

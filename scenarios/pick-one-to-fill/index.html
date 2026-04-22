@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pick One To Fill with BarcodeScanner</title>
+  <title>Dynamsoft Barcode Scanner Sample - Pick One to Fill</title>
   <link rel="stylesheet" href="./index.css">
   <!-- Include Dynamsoft Barcode Reader Bundle via CDN -->
   <script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2000/dist/dbr.bundle.js"></script>
@@ -22,29 +22,29 @@
 
     <div class="form-view">
       <div class="item pn">
-        <label class="title">Product Name: </label>
-        <input type="text">
+        <label class="title" for="input-pn">Product Name: </label>
+        <input type="text" id="input-pn">
       </div>
       <div class="item sn">
-        <label class="title">SN: </label>
+        <label class="title" for="input-sn">SN: </label>
         <div class="content">
-          <input type="text">
+          <input type="text" id="input-sn">
           <button class="open-btn open-sn">Open Camera</button>
           <button class="decode-btn decode-sn">Decode to Auto-Fill</button>
         </div>
       </div>
       <div class="item mac">
-        <label class="title">MAC: </label>
+        <label class="title" for="input-mac">MAC: </label>
         <div class="content">
-          <input type="text">
+          <input type="text" id="input-mac">
           <button class="open-btn open-mac">Open Camera</button>
           <button class="decode-btn decode-mac">Decode to Auto-Fill</button>
         </div>
       </div>
       <div class="item eid">
-        <label class="title">EID: </label>
+        <label class="title" for="input-eid">EID: </label>
         <div class="content">
-          <input type="text">
+          <input type="text" id="input-eid">
           <button class="open-btn open-eid">Open Camera</button>
           <button class="decode-btn decode-eid">Decode to Auto-Fill</button>
         </div>
@@ -87,8 +87,10 @@
         scanBtn.style.display = "none";
         decodeBtn.style.display = "inline-block";
 
-        const target = e.target.classList[1].split("-")[1];
-        const targetInput = document.querySelector(`.${target} input`)
+        const target = [...e.currentTarget.classList].find(c => c.startsWith("open-"))?.split("-")[1];
+        if (!target) return;
+        const targetInput = document.querySelector(`.${target} input`);
+        if (!targetInput) return;
 
         // Launch the scanner and handle the scanned result
         barcodeScanner.launch().then((result) => {
