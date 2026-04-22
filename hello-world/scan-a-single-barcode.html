@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>
-    Dynamsoft Barcode Scanner Sample - Hello World (Decode via Camera)
+    Dynamsoft Barcode Scanner Sample - Hello World (Scan One Single Barcode via Camera)
   </title>
 </head>
 
@@ -23,36 +23,31 @@
   <!-- <script src="../dist/dbr.bundle.js"></script> -->
 
   <script>
+    // Configuration object for initializing the BarcodeScanner instance. Refer to https://www.dynamsoft.com/barcode-reader/docs/web/programming/javascript/api-reference/barcode-scanner.html#barcodescannerconfig
+    let config = {
+      license: "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9", // Replace with your Dynamsoft license key
+      container: document.querySelector(".barcode-scanner-view"), // Specify where to render the scanner UI
+
+      /*
+        scanMode controls the scanning behavior:
+          - SM_MULTI_UNIQUE: Continuously scans and collects each unique barcode.
+          - SM_SINGLE: Stops scanning after the first barcode is detected.
+      */
+      scanMode: Dynamsoft.EnumScanMode.SM_SINGLE,
+
+      // showUploadImageButton: true,
+      // scannerViewConfig: {
+      //   showFlashButton: true,
+      //   cameraSwitchControl: "toggleFrontBack",
+      // },
+    };
+
     const launchBarcodeScanner = () => {
       document.querySelector(".scan-btn").style.display = "none"; // Hide the scan button during the scanning process
-      // Configuration object for initializing the BarcodeScanner instance. Refer to https://www.dynamsoft.com/barcode-reader/docs/web/programming/javascript/api-reference/barcode-scanner.html#barcodescannerconfig
-      let config = {
-        license: "DLS2eyJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSJ9", // Replace with your Dynamsoft license key
-        container: document.querySelector(".barcode-scanner-view"), // Specify where to render the scanner UI
-  
-        /*
-          scanMode controls the scanning behavior:
-            - SM_MULTI_UNIQUE: Continuously scans and collects each unique barcode.
-            - SM_SINGLE: Stops scanning after the first barcode is detected.
-        */
-  
-        // onUniqueBarcodeScanned: (result) => {
-        //   console.log("Scanned barcode: ", result.text);
-        //   if (condition) { // You can add custom logic here to handle each scanned barcode
-        //     barcodeScanner.dispose(); // Stop scanning
-        //   }
-        // },
-  
-        // showUploadImageButton: true,
-        // scannerViewConfig: {
-        //   showFlashButton: true,
-        //   cameraSwitchControl: "toggleFrontBack",
-        // },
-      };
-  
-      // Create a new instance of the Dynamsoft Barcode Scanner
+
+      // Create a new scanner instance for each scan (SM_SINGLE disposes the instance after scanning)
       const barcodeScanner = new Dynamsoft.BarcodeScanner(config);
-  
+
       // Launch the scanner and handle the scanned result
       barcodeScanner.launch().then((result) => {
         // Display the first detected barcode's text in an alert
