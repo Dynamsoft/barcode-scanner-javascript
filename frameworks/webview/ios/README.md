@@ -137,4 +137,4 @@ Need help? Contact Dynamsoft support:
 ## Related Samples
 
 - [Android WebView (RTU API)](../android/) - Android version of this sample
-- [Capacitor Sample](../../../capacitor/) - Cross-platform hybrid framework approach
+- [Capacitor Sample](../../capacitor/) - Cross-platform hybrid framework approach

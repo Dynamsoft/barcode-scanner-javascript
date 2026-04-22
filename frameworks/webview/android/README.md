@@ -124,4 +124,4 @@ Need help? Contact Dynamsoft support:
 ## Related Samples
 
 - [iOS WKWebView (RTU API)](../ios/) - iOS version of this sample
-- [Capacitor Sample](../../../capacitor/) - Cross-platform hybrid framework approach
+- [Capacitor Sample](../../capacitor/) - Cross-platform hybrid framework approach
