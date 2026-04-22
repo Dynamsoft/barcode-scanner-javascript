@@ -57,6 +57,9 @@
       "Name": "ReadDriversLicense",
       "ImageROIProcessingNameArray": [
         "roi_pdf417_barcode"
+      ],
+      "SemanticProcessingNameArray": [
+        "sp_pdf417"
       ]
     }
   ],
@@ -118,6 +121,29 @@
       "Name": "roi_pdf417_barcode",
       "TaskSettingNameArray": [
         "task_pdf417_barcode"
+      ]
+    }
+  ],
+  "SemanticProcessingOptions": [
+    {
+      "Name": "sp_pdf417",
+      "ReferenceObjectFilter": {
+        "ReferenceTargetROIDefNameArray": [
+          "roi_pdf417_barcode"
+        ]
+      },
+      "TaskSettingNameArray": [
+        "dcp_pdf417"
+      ]
+    }
+  ],
+  "CodeParserTaskSettingOptions": [
+    {
+      "Name": "dcp_pdf417",
+      "CodeSpecifications": [
+        "AAMVA_DL_ID",
+        "AAMVA_DL_ID_WITH_MAG_STRIPE",
+        "SOUTH_AFRICA_DL"
       ]
     }
   ]

@@ -43,7 +43,6 @@
     (async () => {
       try {
         await Dynamsoft.License.LicenseManager.initLicense(licenseString, { executeNow: true });
-        await Dynamsoft.DCP.CodeParserModule.loadSpec(["AAMVA_DL_ID", "AAMVA_DL_ID_WITH_MAG_STRIPE", "SOUTH_AFRICA_DL"]);
       } catch (ex) {
         console.error("Initialization error:", ex.message || ex);
         alert(ex.message || ex);
