@@ -170,7 +170,7 @@ yarn add dynamsoft-barcode-reader-bundle@11.4.2000
 ```
 
 > [!NOTE]
-> When using npm/yarn, you need to configure `engineResourcePaths` to specify where the SDK's engine files are located. See the [frameworks samples](https://github.com/Dynamsoft/barcode-scanner-javascript/tree/main/samples/frameworks) or [engineResourcePaths API](https://www.dynamsoft.com/barcode-reader/docs/web/programming/javascript/api-reference/barcode-scanner.html#engineresourcepaths) for details.
+> When using npm/yarn, you need to configure `engineResourcePaths` to specify where the SDK's engine files are located. See the [frameworks samples](https://github.com/Dynamsoft/barcode-scanner-javascript/tree/main/samples/frameworks) or [engineResourcePaths API](https://www.dynamsoft.com/capture-vision/docs/web/programming/javascript/api-reference/core/core-module-class.html#engineresourcepaths) for details.
 
 ### Self-Hosting
 
