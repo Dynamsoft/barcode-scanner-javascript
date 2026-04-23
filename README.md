@@ -2,6 +2,8 @@
 
 This directory contains sample applications and demonstrations for the Dynamsoft Barcode Scanner JavaScript SDK.
 
+**[View All Live Demos](https://dynamsoft.github.io/barcode-scanner-javascript/)** - Try samples online without downloading!
+
 ## Structure
 
 ```
@@ -14,7 +16,9 @@ samples/
 
 ## Quick Start
 
-Open [index.html](index.html) in your browser to explore all available samples with descriptions and live demos.
+**Online:** Visit **[https://dynamsoft.github.io/barcode-scanner-javascript/](https://dynamsoft.github.io/barcode-scanner-javascript/)** to try all samples instantly.
+
+**Local:** Open [index.html](index.html) in your browser to explore all available samples.
 
 ### Hello World Examples
 
