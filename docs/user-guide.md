@@ -46,7 +46,7 @@ A license key is required to use the SDK. Get a 30-day free trial license at:
 <html>
 <head>
     <title>Barcode Scanner</title>
-    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2000/dist/dbr.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2001/dist/dbr.bundle.js"></script>
 </head>
 <body>
     <script>
@@ -67,7 +67,7 @@ A license key is required to use the SDK. Get a 30-day free trial license at:
 <html>
 <head>
     <title>Barcode Scanner - Multi</title>
-    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2000/dist/dbr.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2001/dist/dbr.bundle.js"></script>
 </head>
 <body>
     <script>
@@ -95,7 +95,7 @@ Include the SDK in your HTML page:
 <html>
 <head>
     <title>Barcode Scanner - Multi</title>
-    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2000/dist/dbr.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2001/dist/dbr.bundle.js"></script>
 </head>
 <body>
 </body>
@@ -153,10 +153,10 @@ The simplest way to include the SDK is via [**jsDelivr**](https://jsdelivr.com/)
 
 ```html
 <!-- jsDelivr -->
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2000/dist/dbr.bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2001/dist/dbr.bundle.js"></script>
 
 <!-- UNPKG -->
-<script src="https://unpkg.com/dynamsoft-barcode-reader-bundle@11.4.2000/dist/dbr.bundle.js"></script>
+<script src="https://unpkg.com/dynamsoft-barcode-reader-bundle@11.4.2001/dist/dbr.bundle.js"></script>
 ```
 
 ### npm / yarn
@@ -164,9 +164,9 @@ The simplest way to include the SDK is via [**jsDelivr**](https://jsdelivr.com/)
 For frameworks like **React**, **Vue**, or **Angular**, install via package manager:
 
 ```sh
-npm i dynamsoft-barcode-reader-bundle@11.4.2000
+npm i dynamsoft-barcode-reader-bundle@11.4.2001
 # or
-yarn add dynamsoft-barcode-reader-bundle@11.4.2000
+yarn add dynamsoft-barcode-reader-bundle@11.4.2001
 ```
 
 > [!NOTE]
@@ -174,7 +174,7 @@ yarn add dynamsoft-barcode-reader-bundle@11.4.2000
 
 ### Self-Hosting
 
-[Download the SDK](https://www.dynamsoft.com/barcode-reader/downloads/?ver=11.4.2000&utm_source=guide&product=dbr&package=js), copy the `dist` folder to your server, and include it:
+[Download the SDK](https://www.dynamsoft.com/barcode-reader/downloads/?ver=11.4.2001&utm_source=guide&product=dbr&package=js), copy the `dist` folder to your server, and include it:
 
 ```html
 <!-- Adjust the path based on where you host the dist folder -->

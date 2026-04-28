@@ -24,7 +24,7 @@ onMounted(async () => {
     container: barcodeScannerViewRef.value!,
 
     // Specify the path for the definition file "barcode-scanner.ui.xml" for the scanner view.
-    uiPath: "https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2000/dist/ui/barcode-scanner.ui.xml",
+    uiPath: "https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2001/dist/ui/barcode-scanner.ui.xml",
 
     /*
       scanMode controls the scanning behavior:

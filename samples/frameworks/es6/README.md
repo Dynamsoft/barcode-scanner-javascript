@@ -18,7 +18,7 @@ Open `es6.html` in a web browser (via `http://` or `https://` protocol, not `fil
 ### ES6 Module Import
 
 ```javascript
-import { BarcodeScanner } from "https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2000/dist/dbr.bundle.mjs";
+import { BarcodeScanner } from "https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2001/dist/dbr.bundle.mjs";
 ```
 
 ### Simple Configuration
@@ -27,7 +27,7 @@ import { BarcodeScanner } from "https://cdn.jsdelivr.net/npm/dynamsoft-barcode-r
 let config = {
   license: "YOUR-LICENSE-KEY",
   container: document.querySelector(".barcode-scanner-view"),
-  uiPath: "https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2000/dist/ui/barcode-scanner.ui.xml",
+  uiPath: "https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2001/dist/ui/barcode-scanner.ui.xml",
   engineResourcePaths: {
     rootDirectory: "https://cdn.jsdelivr.net/npm/",
   },

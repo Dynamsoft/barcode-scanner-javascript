@@ -19,7 +19,7 @@ Open `requirejs.html` in a web browser (via `http://` or `https://` protocol, no
 
 ```javascript
 requirejs(
-  ["https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2000/dist/dbr.bundle.js"],
+  ["https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2001/dist/dbr.bundle.js"],
   ({ BarcodeScanner }) => {
     // Your code here
   }
@@ -32,7 +32,7 @@ requirejs(
 let config = {
   license: "YOUR-LICENSE-KEY",
   container: document.querySelector(".barcode-scanner-view"),
-  uiPath: "https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2000/dist/ui/barcode-scanner.ui.xml",
+  uiPath: "https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2001/dist/ui/barcode-scanner.ui.xml",
   engineResourcePaths: {
     rootDirectory: "https://cdn.jsdelivr.net/npm/",
   },
