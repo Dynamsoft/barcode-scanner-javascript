@@ -13,7 +13,7 @@
     "@capacitor/android": "^7.4.2",
     "@capacitor/core": "^7.4.2",
     "@capacitor/ios": "^7.4.2",
-    "dynamsoft-barcode-reader-bundle": "11.4.2000"
+    "dynamsoft-barcode-reader-bundle": "11.4.2001"
   },
   "devDependencies": {
     "@capacitor/cli": "^7.4.2",

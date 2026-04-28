@@ -12,7 +12,7 @@ The RTU API (`BarcodeScanner`) provides the fastest way to add barcode scanning 
 
 This sample uses:
 - **WKWebView** for rendering the JavaScript-based barcode scanner
-- **Dynamsoft Barcode Reader v11.4.2000** RTU API (BarcodeScanner)
+- **Dynamsoft Barcode Reader v11.4.2001** RTU API (BarcodeScanner)
 - Native iOS permissions handling for camera access
 - Swift for iOS implementation
 

@@ -12,7 +12,7 @@ The RTU API (`BarcodeScanner`) provides the fastest way to add barcode scanning 
 
 This sample uses:
 - **Android WebView** for rendering the JavaScript-based barcode scanner
-- **Dynamsoft Barcode Reader v11.4.2000** RTU API (BarcodeScanner)
+- **Dynamsoft Barcode Reader v11.4.2001** RTU API (BarcodeScanner)
 - Native Android permissions handling for camera access
 
 ## Key Features
