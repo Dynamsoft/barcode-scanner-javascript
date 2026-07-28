@@ -318,7 +318,7 @@ Called when the capture process begins.
     // engineResourcePaths typically is only assigned when using a framework like React/Angular/Vue where the resources are not in the same location as the script reference.
     engineResourcePaths: {rootDirectory:"https://cdn.jsdelivr.net/npm/"},
     // path to the UI file
-    uiPath: "https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2001/dist/ui/barcode-scanner.ui.xml",
+    uiPath: "https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.3000/dist/ui/barcode-scanner.ui.xml",
     barcodeFormats: [Dynamsoft.DBR.EnumBarcodeFormat.BF_QR_CODE , Dynamsoft.DBR.EnumBarcodeFormat.BF_CODE_128],
     showPoweredByDynamsoft: false,
     duplicateForgetTime: 3000,
@@ -760,7 +760,21 @@ type CameraSwitchControlMode = "hidden" | "listAll" | "toggleFrontBack";
 
 ```ts
 enum EnumScanMode {
+    /**
+     * Single-result mode (default). The scanner detects barcodes in the
+     * frame and returns ONE result, then closes. If multiple barcodes are
+     * present, the user selects which one to return. Note: "single" refers
+     * to the result returned, not the number of barcodes detected.
+     */
     SM_SINGLE = 0,
+
+    /**
+     * Continuous unique-collection mode. The scanner stays open and
+     * accumulates every distinct barcode in real time, suppressing
+     * duplicates. Each new unique code triggers onUniqueBarcodeScanned;
+     * a repeated code is only re-counted after duplicateForgetTime elapses.
+     * BarcodeResultView is shown by default in this mode.
+     */
     SM_MULTI_UNIQUE = 1
 }
 ```

@@ -79,19 +79,19 @@ Dynamsoft Barcode Reader JavaScript Edition (Ready-to-Use API) enables developer
 ### Option 1: CDN (Fastest Setup)
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2001/dist/dbr.bundle.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.3000/dist/dbr.bundle.js"></script>
 ```
 
 ### Option 2: npm
 
 ```bash
-npm install dynamsoft-barcode-reader-bundle@11.4.2001
+npm install dynamsoft-barcode-reader-bundle@11.4.3000
 ```
 
 ### Option 3: yarn
 
 ```bash
-yarn add dynamsoft-barcode-reader-bundle@11.4.2001
+yarn add dynamsoft-barcode-reader-bundle@11.4.3000
 ```
 
 ## Quick Start
@@ -105,7 +105,7 @@ yarn add dynamsoft-barcode-reader-bundle@11.4.2001
 <html>
 	<head>
 		<title>Barcode Scanner</title>
-		<script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2001/dist/dbr.bundle.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.3000/dist/dbr.bundle.js"></script>
 	</head>
 	<body>
 		<script>
@@ -130,7 +130,7 @@ yarn add dynamsoft-barcode-reader-bundle@11.4.2001
 <html>
 	<head>
 		<title>Multi-Barcode Scanner</title>
-		<script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2001/dist/dbr.bundle.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.3000/dist/dbr.bundle.js"></script>
 	</head>
 	<body>
 		<script>
@@ -152,7 +152,7 @@ yarn add dynamsoft-barcode-reader-bundle@11.4.2001
 <html>
 	<head>
 		<title>Read from Image</title>
-		<script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.2001/dist/dbr.bundle.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/dynamsoft-barcode-reader-bundle@11.4.3000/dist/dbr.bundle.js"></script>
 	</head>
 	<body>
 		<input type="file" id="fileInput" accept="image/*" />
