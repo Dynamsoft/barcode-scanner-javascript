@@ -220,16 +220,22 @@ yarn add dynamsoft-barcode-reader-bundle@11.4.3000
 
 Pre-built samples available for popular frameworks:
 
-| Framework | Sample Link                                                     |
-| --------- | --------------------------------------------------------------- |
-| React     | [samples/frameworks/react](./samples/frameworks/react/)         |
-| Vue 3     | [samples/frameworks/vue](./samples/frameworks/vue/)             |
-| Angular   | [samples/frameworks/angular](./samples/frameworks/angular/)     |
-| Next.js   | [samples/frameworks/next](./samples/frameworks/next/)           |
-| Nuxt 3    | [samples/frameworks/nuxt](./samples/frameworks/nuxt/)           |
-| Svelte    | [samples/frameworks/svelte](./samples/frameworks/svelte/)       |
-| Electron  | [samples/frameworks/electron](./samples/frameworks/electron/)   |
-| Capacitor | [samples/frameworks/capacitor](./samples/frameworks/capacitor/) |
+| Framework   | Sample Link                                                     |
+| ----------- | --------------------------------------------------------------- |
+| React       | [samples/frameworks/react](./samples/frameworks/react/)         |
+| Vue 3       | [samples/frameworks/vue](./samples/frameworks/vue/)             |
+| Angular     | [samples/frameworks/angular](./samples/frameworks/angular/)     |
+| Next.js     | [samples/frameworks/next](./samples/frameworks/next/)           |
+| Nuxt 3      | [samples/frameworks/nuxt](./samples/frameworks/nuxt/)           |
+| Svelte      | [samples/frameworks/svelte](./samples/frameworks/svelte/)       |
+| Electron    | [samples/frameworks/electron](./samples/frameworks/electron/)   |
+| Capacitor   | [samples/frameworks/capacitor](./samples/frameworks/capacitor/) |
+| Blazor      | [samples/frameworks/blazor](./samples/frameworks/blazor/)       |
+| ES6 Modules | [samples/frameworks/es6](./samples/frameworks/es6/)             |
+| TypeScript  | [samples/frameworks/native-ts](./samples/frameworks/native-ts/) |
+| PWA         | [samples/frameworks/pwa](./samples/frameworks/pwa/)             |
+| RequireJS   | [samples/frameworks/requirejs](./samples/frameworks/requirejs/) |
+| WebView     | [samples/frameworks/webview](./samples/frameworks/webview/)     |
 
 **[View all framework samples](./samples/frameworks/)**
 
